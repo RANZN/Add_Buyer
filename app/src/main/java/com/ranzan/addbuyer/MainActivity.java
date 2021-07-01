@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ShowData.class);
-                intent.putExtra("name", email.getText().toString());
+                intent.putExtra("name", Name.getText().toString());
                 intent.putExtra("organizationName", organizationName.getText().toString());
                 intent.putExtra("number", number.getText().toString());
                 intent.putExtra("email", email.getText().toString());
                 intent.putExtra("address", address.getText().toString());
                 intent.putExtra("taxID", taxID.getText().toString());
-                intent.putExtra("manufacture",manufacture.getText().toString());
+                intent.putExtra("manufacture", manufacture.getText().toString());
                 intent.putExtra("companyID", companyID.getText().toString());
-                if (validEmail() && validName() && validNumber() && validAddress() && validCompanyID() && validManufacture() && validTaxID())
+                if (validEmail() && validOrgName() && validName() && validNumber() && validAddress() && validCompanyID() && validManufacture() && validTaxID())
                     startActivity(intent);
 
             }
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         taxID = findViewById(R.id.etCustomerTaxID);
         companyID = findViewById(R.id.etCompanyID);
         tick = findViewById(R.id.btnNext);
-        back=findViewById(R.id.exitbtn);
+        back = findViewById(R.id.exitbtn);
     }
 
     private boolean validEmail() {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validName() {
-        if (Name.toString().trim().length() > 4) return true;
+        if (Name.getText().toString().trim().length() > 4) return true;
         else {
             Name.setError("Invalid Name");
             return false;
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validOrgName() {
-        if (organizationName.toString().trim().length() > 4) return true;
+        if (organizationName.getText().toString().trim().length() > 4) return true;
         else {
             organizationName.setError("Invalid");
             return false;
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validAddress() {
-        if (address.toString().trim().length() > 4) return true;
+        if (address.getText().toString().trim().length() > 4) return true;
         else {
             address.setError("Invalid");
             return false;
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validNumber() {
-        if (number.length() == 10) return true;
+        if (number.getText().toString().trim().length() == 10) return true;
         else {
             number.setError("Invalid");
             return false;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validManufacture() {
-        if (manufacture.toString().trim().length() > 4) return true;
+        if (manufacture.getText().toString().trim().length() > 4) return true;
         else {
             manufacture.setError("Invalid");
             return false;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validTaxID() {
-        if (taxID.toString().trim().length() > 4) return true;
+        if (taxID.getText().toString().trim().length() > 4) return true;
         else {
             taxID.setError("Invalid");
             return false;
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validCompanyID() {
-        if (companyID.toString().trim().length() > 4) return true;
+        if (companyID.getText().toString().trim().length() > 4) return true;
         else {
             companyID.setError("Invalid");
             return false;
